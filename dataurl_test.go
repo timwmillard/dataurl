@@ -20,15 +20,15 @@ type dataURLTest struct {
 
 func genTestTable() []dataURLTest {
 	return []dataURLTest{
-		dataURLTest{
+		{
 			`data:;base64,aGV5YQ==`,
 			[]item{
-				item{itemDataPrefix, dataPrefix},
-				item{itemParamSemicolon, ";"},
-				item{itemBase64Enc, "base64"},
-				item{itemDataComma, ","},
-				item{itemData, "aGV5YQ=="},
-				item{itemEOF, ""},
+				{itemDataPrefix, dataPrefix},
+				{itemParamSemicolon, ";"},
+				{itemBase64Enc, "base64"},
+				{itemDataComma, ","},
+				{itemData, "aGV5YQ=="},
+				{itemEOF, ""},
 			},
 			DataURL{
 				defaultMediaType(),
@@ -36,18 +36,18 @@ func genTestTable() []dataURLTest {
 				[]byte("heya"),
 			},
 		},
-		dataURLTest{
+		{
 			`data:text/plain;base64,aGV5YQ==`,
 			[]item{
-				item{itemDataPrefix, dataPrefix},
-				item{itemMediaType, "text"},
-				item{itemMediaSep, "/"},
-				item{itemMediaSubType, "plain"},
-				item{itemParamSemicolon, ";"},
-				item{itemBase64Enc, "base64"},
-				item{itemDataComma, ","},
-				item{itemData, "aGV5YQ=="},
-				item{itemEOF, ""},
+				{itemDataPrefix, dataPrefix},
+				{itemMediaType, "text"},
+				{itemMediaSep, "/"},
+				{itemMediaSubType, "plain"},
+				{itemParamSemicolon, ";"},
+				{itemBase64Enc, "base64"},
+				{itemDataComma, ","},
+				{itemData, "aGV5YQ=="},
+				{itemEOF, ""},
 			},
 			DataURL{
 				MediaType{
@@ -59,22 +59,22 @@ func genTestTable() []dataURLTest {
 				[]byte("heya"),
 			},
 		},
-		dataURLTest{
+		{
 			`data:text/plain;charset=utf-8;base64,aGV5YQ==`,
 			[]item{
-				item{itemDataPrefix, dataPrefix},
-				item{itemMediaType, "text"},
-				item{itemMediaSep, "/"},
-				item{itemMediaSubType, "plain"},
-				item{itemParamSemicolon, ";"},
-				item{itemParamAttr, "charset"},
-				item{itemParamEqual, "="},
-				item{itemParamVal, "utf-8"},
-				item{itemParamSemicolon, ";"},
-				item{itemBase64Enc, "base64"},
-				item{itemDataComma, ","},
-				item{itemData, "aGV5YQ=="},
-				item{itemEOF, ""},
+				{itemDataPrefix, dataPrefix},
+				{itemMediaType, "text"},
+				{itemMediaSep, "/"},
+				{itemMediaSubType, "plain"},
+				{itemParamSemicolon, ";"},
+				{itemParamAttr, "charset"},
+				{itemParamEqual, "="},
+				{itemParamVal, "utf-8"},
+				{itemParamSemicolon, ";"},
+				{itemBase64Enc, "base64"},
+				{itemDataComma, ","},
+				{itemData, "aGV5YQ=="},
+				{itemEOF, ""},
 			},
 			DataURL{
 				MediaType{
@@ -88,26 +88,26 @@ func genTestTable() []dataURLTest {
 				[]byte("heya"),
 			},
 		},
-		dataURLTest{
+		{
 			`data:text/plain;charset=utf-8;foo=bar;base64,aGV5YQ==`,
 			[]item{
-				item{itemDataPrefix, dataPrefix},
-				item{itemMediaType, "text"},
-				item{itemMediaSep, "/"},
-				item{itemMediaSubType, "plain"},
-				item{itemParamSemicolon, ";"},
-				item{itemParamAttr, "charset"},
-				item{itemParamEqual, "="},
-				item{itemParamVal, "utf-8"},
-				item{itemParamSemicolon, ";"},
-				item{itemParamAttr, "foo"},
-				item{itemParamEqual, "="},
-				item{itemParamVal, "bar"},
-				item{itemParamSemicolon, ";"},
-				item{itemBase64Enc, "base64"},
-				item{itemDataComma, ","},
-				item{itemData, "aGV5YQ=="},
-				item{itemEOF, ""},
+				{itemDataPrefix, dataPrefix},
+				{itemMediaType, "text"},
+				{itemMediaSep, "/"},
+				{itemMediaSubType, "plain"},
+				{itemParamSemicolon, ";"},
+				{itemParamAttr, "charset"},
+				{itemParamEqual, "="},
+				{itemParamVal, "utf-8"},
+				{itemParamSemicolon, ";"},
+				{itemParamAttr, "foo"},
+				{itemParamEqual, "="},
+				{itemParamVal, "bar"},
+				{itemParamSemicolon, ";"},
+				{itemBase64Enc, "base64"},
+				{itemDataComma, ","},
+				{itemData, "aGV5YQ=="},
+				{itemEOF, ""},
 			},
 			DataURL{
 				MediaType{
@@ -122,32 +122,32 @@ func genTestTable() []dataURLTest {
 				[]byte("heya"),
 			},
 		},
-		dataURLTest{
+		{
 			`data:application/json;charset=utf-8;foo="b\"<@>\"r";style=unformatted%20json;base64,eyJtc2ciOiAiaGV5YSJ9`,
 			[]item{
-				item{itemDataPrefix, dataPrefix},
-				item{itemMediaType, "application"},
-				item{itemMediaSep, "/"},
-				item{itemMediaSubType, "json"},
-				item{itemParamSemicolon, ";"},
-				item{itemParamAttr, "charset"},
-				item{itemParamEqual, "="},
-				item{itemParamVal, "utf-8"},
-				item{itemParamSemicolon, ";"},
-				item{itemParamAttr, "foo"},
-				item{itemParamEqual, "="},
-				item{itemLeftStringQuote, "\""},
-				item{itemParamVal, `b\"<@>\"r`},
-				item{itemRightStringQuote, "\""},
-				item{itemParamSemicolon, ";"},
-				item{itemParamAttr, "style"},
-				item{itemParamEqual, "="},
-				item{itemParamVal, "unformatted%20json"},
-				item{itemParamSemicolon, ";"},
-				item{itemBase64Enc, "base64"},
-				item{itemDataComma, ","},
-				item{itemData, "eyJtc2ciOiAiaGV5YSJ9"},
-				item{itemEOF, ""},
+				{itemDataPrefix, dataPrefix},
+				{itemMediaType, "application"},
+				{itemMediaSep, "/"},
+				{itemMediaSubType, "json"},
+				{itemParamSemicolon, ";"},
+				{itemParamAttr, "charset"},
+				{itemParamEqual, "="},
+				{itemParamVal, "utf-8"},
+				{itemParamSemicolon, ";"},
+				{itemParamAttr, "foo"},
+				{itemParamEqual, "="},
+				{itemLeftStringQuote, "\""},
+				{itemParamVal, `b\"<@>\"r`},
+				{itemRightStringQuote, "\""},
+				{itemParamSemicolon, ";"},
+				{itemParamAttr, "style"},
+				{itemParamEqual, "="},
+				{itemParamVal, "unformatted%20json"},
+				{itemParamSemicolon, ";"},
+				{itemBase64Enc, "base64"},
+				{itemDataComma, ","},
+				{itemData, "eyJtc2ciOiAiaGV5YSJ9"},
+				{itemEOF, ""},
 			},
 			DataURL{
 				MediaType{
@@ -163,20 +163,20 @@ func genTestTable() []dataURLTest {
 				[]byte(`{"msg": "heya"}`),
 			},
 		},
-		dataURLTest{
+		{
 			`data:xxx;base64,aGV5YQ==`,
 			[]item{
-				item{itemDataPrefix, dataPrefix},
-				item{itemError, "invalid character for media type"},
+				{itemDataPrefix, dataPrefix},
+				{itemError, "invalid character for media type"},
 			},
 			DataURL{},
 		},
-		dataURLTest{
+		{
 			`data:,`,
 			[]item{
-				item{itemDataPrefix, dataPrefix},
-				item{itemDataComma, ","},
-				item{itemEOF, ""},
+				{itemDataPrefix, dataPrefix},
+				{itemDataComma, ","},
+				{itemEOF, ""},
 			},
 			DataURL{
 				defaultMediaType(),
@@ -184,13 +184,13 @@ func genTestTable() []dataURLTest {
 				[]byte(""),
 			},
 		},
-		dataURLTest{
+		{
 			`data:,A%20brief%20note`,
 			[]item{
-				item{itemDataPrefix, dataPrefix},
-				item{itemDataComma, ","},
-				item{itemData, "A%20brief%20note"},
-				item{itemEOF, ""},
+				{itemDataPrefix, dataPrefix},
+				{itemDataComma, ","},
+				{itemData, "A%20brief%20note"},
+				{itemEOF, ""},
 			},
 			DataURL{
 				defaultMediaType(),
@@ -198,18 +198,18 @@ func genTestTable() []dataURLTest {
 				[]byte("A brief note"),
 			},
 		},
-		dataURLTest{
+		{
 			`data:image/svg+xml-im.a.fake;base64,cGllLXN0b2NrX1RoaXJ0eQ==`,
 			[]item{
-				item{itemDataPrefix, dataPrefix},
-				item{itemMediaType, "image"},
-				item{itemMediaSep, "/"},
-				item{itemMediaSubType, "svg+xml-im.a.fake"},
-				item{itemParamSemicolon, ";"},
-				item{itemBase64Enc, "base64"},
-				item{itemDataComma, ","},
-				item{itemData, "cGllLXN0b2NrX1RoaXJ0eQ=="},
-				item{itemEOF, ""},
+				{itemDataPrefix, dataPrefix},
+				{itemMediaType, "image"},
+				{itemMediaSep, "/"},
+				{itemMediaSubType, "svg+xml-im.a.fake"},
+				{itemParamSemicolon, ";"},
+				{itemBase64Enc, "base64"},
+				{itemDataComma, ","},
+				{itemData, "cGllLXN0b2NrX1RoaXJ0eQ=="},
+				{itemEOF, ""},
 			},
 			DataURL{
 				MediaType{
@@ -509,7 +509,7 @@ func BenchmarkLex(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		for _, test := range genTestTable() {
 			l := lex(test.InputRawDataURL)
-			for _ = range l.items {
+			for range l.items {
 			}
 		}
 	}
